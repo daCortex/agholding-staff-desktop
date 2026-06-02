@@ -1,6 +1,6 @@
 {
   "name": "agholding-staff-desktop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AG Holding Staff — desktop app for the staff portal",
   "main": "main.js",
   "author": "Asia General Holding Co., Ltd.",
@@ -17,6 +17,7 @@
     "appId": "com.agholding.staff",
     "productName": "AG Holding Staff",
     "directories": { "output": "dist", "buildResources": "build" },
+    "afterPack": "build/afterPack.js",
     "files": ["main.js", "package.json"],
     "mac": {
       "target": [{ "target": "dmg", "arch": ["universal"] }],

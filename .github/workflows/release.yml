@@ -49,13 +49,24 @@ jobs:
       - name: Publish Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.0
-          name: AG Holding Staff
+          tag_name: ${{ github.ref_name }}
+          name: AG Holding Staff ${{ github.ref_name }}
           body: |
             macOS (universal), Windows and Linux builds of the AG Holding Staff app.
 
-            The app is unsigned — on first launch:
-            - **macOS**: right-click the app → Open → Open.
-            - **Windows**: "More info" → "Run anyway" on the SmartScreen prompt.
+            The app is **ad-hoc signed but not Apple-notarized** (no paid certificate),
+            so macOS / Windows will warn on first launch. To open it:
+
+            **macOS** — if you see "damaged" or "cannot verify developer":
+            1. Move the app to **Applications**.
+            2. Open **Terminal** and run:
+               ```
+               xattr -cr "/Applications/AG Holding Staff.app"
+               ```
+            3. Open the app normally. (Or: right-click the app → **Open** → **Open**.)
+
+            **Windows** — on the SmartScreen prompt: **More info** → **Run anyway**.
+
+            **Linux** — `chmod +x` the AppImage, or install the `.deb`.
           files: artifacts/**/*
           fail_on_unmatched_files: false
