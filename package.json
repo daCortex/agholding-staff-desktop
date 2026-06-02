@@ -1,6 +1,6 @@
 {
   "name": "agholding-staff-desktop",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AG Holding Staff — desktop app for the staff portal",
   "main": "main.js",
   "author": "Asia General Holding Co., Ltd.",
@@ -25,28 +25,52 @@
     },
     "afterPack": "build/afterPack.js",
     "publish": [
-      { "provider": "github", "owner": "daCortex", "repo": "agholding-staff-desktop" }
+      {
+        "provider": "github",
+        "owner": "daCortex",
+        "repo": "agholding-staff-desktop"
+      }
     ],
-    "files": ["main.js", "package.json", "node_modules/**/*"],
+    "files": [
+      "main.js",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "artifactName": "AG-Holding-Staff-${version}-${arch}.${ext}",
     "mac": {
-      "target": [{ "target": "dmg", "arch": ["universal"] }],
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
       "category": "public.app-category.business",
       "icon": "build/icon.png",
       "identity": null
     },
-    "dmg": { "title": "AG Holding Staff ${version}" },
+    "dmg": {
+      "title": "AG Holding Staff ${version}"
+    },
     "win": {
-      "target": ["nsis", "portable"],
+      "target": [
+        "nsis",
+        "portable"
+      ],
       "icon": "build/icon.png"
     },
     "nsis": {
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "artifactName": "${productName}-${version}-Setup.${ext}"
+      "artifactName": "AG-Holding-Staff-${version}-Setup.${ext}"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "category": "Office",
       "icon": "build/icon.png",
       "maintainer": "Asia General Holding Co., Ltd."
