@@ -3,6 +3,16 @@
 All notable changes to the **AG Holding Staff** desktop app.
 This project uses [semantic versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`).
 
+## [1.0.3] — 2026-06-02
+### Added
+- **In-app updates.** A **Check for Updates…** menu item (under the app menu on
+  macOS, Help menu on Windows/Linux), plus a quiet automatic check on launch.
+  - **Windows & Linux:** the app downloads the new version and offers
+    **Restart & install** — no reinstalling.
+  - **macOS:** detects a new version and one-click opens the download (true
+    silent self-install on macOS needs a paid Apple Developer signature).
+- Native application menu (File / Edit / View / Help) with Reload, zoom, etc.
+
 ## [1.0.2] — 2026-06-02
 ### Fixed
 - **macOS "is damaged / can't be opened" (malware) error on Apple Silicon.**
