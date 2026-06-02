@@ -1,0 +1,45 @@
+{
+  "name": "agholding-staff-desktop",
+  "version": "1.0.0",
+  "description": "AG Holding Staff — desktop app for the staff portal",
+  "main": "main.js",
+  "author": "Asia General Holding Co., Ltd.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^32.2.7",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.agholding.staff",
+    "productName": "AG Holding Staff",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "files": ["main.js", "package.json"],
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["universal"] }],
+      "category": "public.app-category.business",
+      "icon": "build/icon.png",
+      "identity": null
+    },
+    "dmg": { "title": "AG Holding Staff ${version}" },
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "${productName}-${version}-Setup.${ext}"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Office",
+      "icon": "build/icon.png",
+      "maintainer": "Asia General Holding Co., Ltd."
+    }
+  }
+}
