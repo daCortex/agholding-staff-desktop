@@ -12,8 +12,12 @@ const path = require("node:path");
  */
 exports.default = async function afterPack(context) {
   if (context.electronPlatformName !== "darwin") return;
+  // Signing the per-arch temp builds breaks the universal merge (it requires
+  // identical files across arches). Only sign the final merged app.
+  if (context.appOutDir.includes("-temp")) return;
   const appName = `${context.packager.appInfo.productFilename}.app`;
   const appPath = path.join(context.appOutDir, appName);
   console.log(`afterPack: ad-hoc signing ${appPath}`);
   execSync(`codesign --force --deep --sign - ${JSON.stringify(appPath)}`, { stdio: "inherit" });
+  execSync(`codesign --verify --verbose=2 ${JSON.stringify(appPath)}`, { stdio: "inherit" });
 };

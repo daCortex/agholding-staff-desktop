@@ -1,6 +1,6 @@
 {
   "name": "agholding-staff-desktop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AG Holding Staff — desktop app for the staff portal",
   "main": "main.js",
   "author": "Asia General Holding Co., Ltd.",
@@ -16,18 +16,36 @@
   "build": {
     "appId": "com.agholding.staff",
     "productName": "AG Holding Staff",
-    "directories": { "output": "dist", "buildResources": "build" },
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
     "afterPack": "build/afterPack.js",
-    "files": ["main.js", "package.json"],
+    "files": [
+      "main.js",
+      "package.json"
+    ],
     "mac": {
-      "target": [{ "target": "dmg", "arch": ["universal"] }],
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
       "category": "public.app-category.business",
       "icon": "build/icon.png",
       "identity": null
     },
-    "dmg": { "title": "AG Holding Staff ${version}" },
+    "dmg": {
+      "title": "AG Holding Staff ${version}"
+    },
     "win": {
-      "target": ["nsis", "portable"],
+      "target": [
+        "nsis",
+        "portable"
+      ],
       "icon": "build/icon.png"
     },
     "nsis": {
@@ -37,7 +55,10 @@
       "artifactName": "${productName}-${version}-Setup.${ext}"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "category": "Office",
       "icon": "build/icon.png",
       "maintainer": "Asia General Holding Co., Ltd."
